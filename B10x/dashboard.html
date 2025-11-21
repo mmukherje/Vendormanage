@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendor Management Software · Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page="dashboard">
+    <div class="phusia-sheen"></div>
+    <div class="app-shell">
+      <nav class="main-nav">
+        <div class="nav-left">
+          <img
+            src="assets/company-logo/logo-placeholder.svg"
+            alt="Company Logo"
+            class="brand-logo"
+            onerror="this.style.display='none'"
+          />
+          <div>
+            <p class="eyebrow">Vendor Management Software</p>
+            <h2 class="nav-title">Control Center</h2>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#admin">Admin</a>
+          <a href="#maker">Maker</a>
+          <a href="#assign">Assignments</a>
+          <a href="#billing">Billing</a>
+          <a href="#integrations">Integrations</a>
+        </div>
+        <div class="nav-actions">
+          <span class="role-pill">Role: <strong id="active-role">-</strong></span>
+          <button id="logout" class="ghost">Logout</button>
+        </div>
+      </nav>
+
+      <header class="app-header compact">
+        <div>
+          <h1>Secure Operations Workspace</h1>
+          <p class="subtitle">
+            Maker-checker workflows, configurable onboarding journeys, renewal
+            automation, and billing controls live here. Menus adjust based on
+            assigned privileges.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel grid-2" id="admin">
+          <div>
+            <div class="section-head">
+              <h2>Admin Control Tower</h2>
+              <p>
+                Manage users, data uploads, branch structures, and dynamic
+                fields. Switch between tasks using the submenu below and capture
+                data page-wise with save-and-continue guidance.
+              </p>
+            </div>
+            <div class="sub-nav" aria-label="Admin submenu">
+              <button class="sub-nav-btn" data-target="#add-user">Add User</button>
+              <button class="sub-nav-btn" data-target="#data-upload">Data Upload</button>
+              <button class="sub-nav-btn" data-target="#field-builder">Field Builder</button>
+            </div>
+
+            <article id="add-user">
+              <h3>Add User</h3>
+              <form id="user-form" class="form-grid">
+                <label>
+                  User Name
+                  <input type="text" name="fullName" required />
+                </label>
+                <label>
+                  Branch
+                  <input type="text" name="userBranch" required />
+                </label>
+                <label>
+                  Branch Code
+                  <input type="text" name="userBranchCode" maxlength="10" required />
+                </label>
+                <label>
+                  Zone
+                  <input type="text" name="userZone" required />
+                </label>
+                <label>
+                  Email ID
+                  <input type="email" name="userEmail" required />
+                </label>
+                <label>
+                  Mobile (10 digits)
+                  <input
+                    type="tel"
+                    name="userMobile"
+                    pattern="\\d{10}"
+                    required
+                  />
+                </label>
+                <label>
+                  User ID
+                  <input type="text" name="userId" required />
+                </label>
+                <label>
+                  Temporary Password
+                  <input type="text" name="userPassword" minlength="8" required />
+                </label>
+                <label>
+                  Role
+                  <select name="userRole" required>
+                    <option value="">Select role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Maker">Maker</option>
+                    <option value="Verifier">Verifier</option>
+                    <option value="Branch">Branch User</option>
+                  </select>
+                </label>
+                <label>
+                  Password Last Reset
+                  <input type="date" name="passwordReset" required />
+                </label>
+                <fieldset class="full auth-matrix">
+                  <legend>Rights / Authorisations</legend>
+                  <label>
+                    <input type="checkbox" name="userPermissions" value="Onboarding" />
+                    Vendor Onboarding
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="userPermissions"
+                      value="Verification"
+                    />
+                    Document Verification
+                  </label>
+                  <label>
+                    <input type="checkbox" name="userPermissions" value="Billing" />
+                    Billing & GST Updates
+                  </label>
+                  <label>
+                    <input type="checkbox" name="userPermissions" value="Assignments" />
+                    Case Assignments
+                  </label>
+                  <label>
+                    <input type="checkbox" name="userPermissions" value="API" />
+                    API & Integration Control
+                  </label>
+                  <label>
+                    <input type="checkbox" name="userPermissions" value="DataUpload" />
+                    Data Upload & Migration
+                  </label>
+                </fieldset>
+                <div class="form-actions full">
+                  <button type="submit" class="primary">Save User</button>
+                  <button
+                    type="button"
+                    class="save-continue"
+                    data-next="#data-upload"
+                  >
+                    Save & Continue
+                  </button>
+                </div>
+              </form>
+            </article>
+
+            <article id="data-upload">
+              <h3>Data Upload & Migration</h3>
+              <p>
+                Use this uploader to onboard legacy vendor, branch, or billing
+                data at scale. Files are routed to Legal / Technical / PD /
+                FI/FCU / RCU reviewers for classification.
+              </p>
+              <form id="data-upload-form" class="form-grid">
+                <label class="full">
+                  Select File (Excel / CSV)
+                  <input
+                    type="file"
+                    name="adminUpload"
+                    accept=".xlsx,.xls,.csv"
+                    required
+                  />
+                </label>
+                <label class="full">
+                  Purpose / Notes
+                  <textarea
+                    name="uploadNotes"
+                    placeholder="Describe the data you are uploading"
+                  ></textarea>
+                </label>
+                <div class="form-actions full">
+                  <button type="submit" class="secondary">Upload</button>
+                  <button
+                    type="button"
+                    class="save-continue"
+                    data-next="#field-builder"
+                  >
+                    Save & Continue
+                  </button>
+                </div>
+              </form>
+            </article>
+          </div>
+
+          <div class="stacked-card">
+            <article id="branch-directory">
+              <h3>Branch & Zone Directory</h3>
+              <form id="branch-form" class="form-grid">
+                <label>
+                  Branch Code
+                  <input type="text" name="branchCode" maxlength="10" required />
+                </label>
+                <label>
+                  Branch Name
+                  <input type="text" name="branchName" required />
+                </label>
+                <label>
+                  Zone
+                  <input type="text" name="branchZone" required />
+                </label>
+                <label>
+                  State
+                  <input type="text" name="branchState" required />
+                </label>
+                <label class="full">
+                  Address (Line 1)
+                  <input type="text" name="address1" required />
+                </label>
+                <label class="full">
+                  Address (Line 2)
+                  <input type="text" name="address2" required />
+                </label>
+                <label class="full">
+                  Address (Line 3 + PIN)
+                  <input type="text" name="address3" pattern=".*\\d{6}" required />
+                </label>
+                <button type="submit" class="secondary full">
+                  Add Branch
+                </button>
+              </form>
+              <div class="pill-list" id="branch-list"></div>
+            </article>
+            <article id="field-builder">
+              <h3>Field & Document Builder</h3>
+              <form id="field-form" class="form-grid">
+                <label>
+                  Field Label
+                  <input type="text" name="fieldLabel" required />
+                </label>
+                <label>
+                  Control Type
+                  <select name="fieldType" required>
+                    <option value="text">Text</option>
+                    <option value="dropdown">Dropdown</option>
+                    <option value="document">Document Upload</option>
+                  </select>
+                </label>
+                <label class="full">
+                  Options (comma separated)
+                  <input
+                    type="text"
+                    name="fieldOptions"
+                    placeholder="Optional"
+                  />
+                </label>
+                <button type="submit" class="ghost full">
+                  Add to Schema
+                </button>
+              </form>
+              <ul id="field-list" class="check-list"></ul>
+            </article>
+          </div>
+          <div class="table-wrapper full-width">
+            <table id="user-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>User ID</th>
+                  <th>Branch</th>
+                  <th>Zone</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Authorisations</th>
+                  <th>Password Reset (days ago)</th>
+                  <th>Alert</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <button class="save-continue" data-next="#maker">
+            Save & Continue to Maker Workspace
+          </button>
+        </section>
+
+        <section class="panel" id="maker">
+          <div class="section-head">
+            <h2>Maker Workspace & Vendor Onboarding</h2>
+            <p>
+              Capture vendor master data, set validity (1-10 years), upload
+              documents with naming, and track approval lifecycle.
+            </p>
+          </div>
+          <div class="grid-2">
+            <form id="vendor-form" class="form-grid">
+              <label>
+                Vendor Name
+                <input type="text" name="vendorName" required />
+              </label>
+              <label>
+                Vendor Type
+                <select name="vendorType" required>
+                  <option value="">Select type</option>
+                  <option value="Legal">Legal</option>
+                  <option value="Technical">Technical</option>
+                  <option value="PD">PD</option>
+                  <option value="FI/FCU">FI/FCU</option>
+                  <option value="RCU">RCU</option>
+                  <option value="Research">Research</option>
+                </select>
+              </label>
+              <label>
+                Validity (Years)
+                <select name="validityYears" required>
+                  <option value="">Select validity</option>
+                </select>
+              </label>
+              <label>
+                Zone / Branch
+                <input type="text" name="vendorZone" required />
+              </label>
+              <label>
+                GST Number
+                <input type="text" name="vendorGST" minlength="15" maxlength="15" />
+              </label>
+              <label>
+                Mobile (10 digits)
+                <input type="tel" name="vendorMobile" pattern="\\d{10}" required />
+              </label>
+              <label class="full">
+                Address Line 1
+                <input type="text" name="venAddress1" required />
+              </label>
+              <label class="full">
+                Address Line 2
+                <input type="text" name="venAddress2" required />
+              </label>
+              <label class="full">
+                Address Line 3 + State + PIN
+                <input type="text" name="venAddress3" pattern=".*\\d{6}" required />
+              </label>
+              <label class="full">
+                Upload Vendor Documents (multiple)
+                <input
+                  type="file"
+                  name="vendorDocs"
+                  multiple
+                  data-capture="documentName"
+                />
+              </label>
+              <label class="full">
+                Document Names / Notes
+                <textarea
+                  name="documentNames"
+                  placeholder="KYC.pdf, PAN.pdf, ServiceAgreement.pdf"
+                ></textarea>
+              </label>
+              <button type="submit" class="primary full">
+                Submit for Verification
+              </button>
+            </form>
+            <div class="workflow">
+              <div class="workflow-step">
+                <h3>Verification Queue</h3>
+                <p>
+                  Admin/Verifier reviews scans, cross-checks documents, and can
+                  approve or raise queries instantly.
+                </p>
+                <div id="verification-queue" class="card-list"></div>
+              </div>
+              <div class="workflow-step">
+                <h3>Renewal & Alerts</h3>
+                <p>
+                  Automatic reminders 30 days before expiry with bulk renewal
+                  upload and digital acceptance.
+                </p>
+                <ul id="renewal-alerts" class="timeline"></ul>
+                <button id="bulk-upload" class="secondary full">
+                  Upload Bulk Onboarding / Renewal (Excel)
+                </button>
+                <input
+                  type="file"
+                  id="bulk-file"
+                  accept=".xlsx,.xls,.csv"
+                  hidden
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <button class="save-continue" data-next="#assign">
+          Save & Continue to Assignment & Billing
+        </button>
+
+        <section class="panel grid-2" id="assign">
+          <div>
+            <h2>Case Assignment & Compliance</h2>
+            <form id="assignment-form" class="form-grid">
+              <label>
+                Case Name / ID
+                <input type="text" name="caseId" required />
+              </label>
+              <label>
+                Department
+                <select name="department" required>
+                  <option value="Legal">Legal</option>
+                  <option value="Technical">Technical</option>
+                  <option value="PD">PD</option>
+                  <option value="FI/FCU">FI/FCU</option>
+                  <option value="RCU">RCU</option>
+                  <option value="Research">Research</option>
+                </select>
+              </label>
+              <label>
+                Assign Mode
+                <select name="assignMode" required>
+                  <option value="Excel">Excel Upload</option>
+                  <option value="Manual">Manual Branch Assignment</option>
+                </select>
+              </label>
+              <label class="full">
+                Branch / Zone Reference
+                <input type="text" name="assignBranch" required />
+              </label>
+              <label class="full">
+                Select Vendor
+                <select name="assignVendor" id="assignVendor"></select>
+              </label>
+              <button type="submit" class="primary full">
+                Assign Case
+              </button>
+            </form>
+            <div class="table-wrapper">
+              <table id="assignment-table">
+                <thead>
+                  <tr>
+                    <th>Case</th>
+                    <th>Dept</th>
+                    <th>Vendor</th>
+                    <th>Mode</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div id="billing">
+            <h2>Vendor Self-service & Billing</h2>
+            <p>
+              Vendors must validate billing month, invoice metadata, and rate
+              details here before submitting for payment release.
+            </p>
+            <form id="vendor-self-form" class="form-grid">
+              <label>
+                Billing Month
+                <select name="billingMonth" required>
+                  <option value="">Select month</option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
+              </label>
+              <label>
+                Invoice Number
+                <input type="text" name="invoiceNumber" required />
+              </label>
+              <label>
+                Invoice Date
+                <input type="date" name="invoiceDate" required />
+              </label>
+              <label>
+                Vendor Code
+                <input type="text" name="selfVendorCode" required />
+              </label>
+              <label>
+                Billing Rate
+                <input type="number" name="billingRate" min="0" step="0.01" />
+              </label>
+              <label>
+                GST Number
+                <input
+                  type="text"
+                  name="selfGST"
+                  minlength="15"
+                  maxlength="15"
+                  required
+                />
+              </label>
+              <label>
+                GST % Charge
+                <input
+                  type="number"
+                  name="gstCharge"
+                  min="0"
+                  max="28"
+                  step="0.1"
+                />
+              </label>
+              <label class="full">
+                Billing Notes
+                <textarea
+                  name="billingNotes"
+                  placeholder="Add assumptions or supporting information"
+                ></textarea>
+              </label>
+              <div class="full line-items" id="billing-line-items">
+                <div class="line-item">
+                  <input
+                    type="text"
+                    class="line-desc"
+                    placeholder="Line description"
+                    required
+                  />
+                  <input
+                    type="number"
+                    class="line-amt"
+                    placeholder="Amount"
+                    min="0"
+                    step="0.01"
+                    required
+                  />
+                  <button type="button" class="icon-btn remove-line" title="Remove">
+                    &times;
+                  </button>
+                </div>
+              </div>
+              <button type="button" class="ghost add-line" id="add-line-item">
+                + Add Billing Line
+              </button>
+              <label>
+                Digital Signature Certificate
+                <input type="file" name="dsc" />
+              </label>
+              <label class="full">
+                NDC Upload (Company Letter Head)
+                <input type="file" name="ndc" />
+              </label>
+              <label class="full">
+                Payment Status
+                <select name="paymentStatus">
+                  <option value="Pending">Pending</option>
+                  <option value="Processing">Processing</option>
+                  <option value="Released">Released</option>
+                </select>
+              </label>
+              <div class="form-actions full">
+                <button type="submit" class="secondary">Save Billing</button>
+                <button type="button" class="save-continue" data-next="#integrations">
+                  Save & Continue
+                </button>
+              </div>
+            </form>
+            <div class="table-wrapper">
+              <table id="billing-table">
+                <thead>
+                  <tr>
+                    <th>Billing Month</th>
+                    <th>Invoice</th>
+                    <th>Vendor</th>
+                    <th>Rate</th>
+                    <th>GST %</th>
+                    <th>Lines</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <button class="save-continue" data-next="#integrations">
+          Save & Continue to Integrations
+        </button>
+
+        <section class="panel grid-2" id="integrations">
+          <div>
+            <h2>API & Integrations</h2>
+            <p>
+              Connect to CBS, treasury, compliance, and payment systems. Secure
+              endpoints are documented for quick consumption.
+            </p>
+            <form id="api-form" class="form-grid">
+              <label>
+                Integration Name
+                <input type="text" name="integrationName" required />
+              </label>
+              <label>
+                Endpoint / API URL
+                <input type="url" name="integrationUrl" required />
+              </label>
+              <label>
+                Authentication
+                <select name="integrationAuth" required>
+                  <option value="OAuth2">OAuth2</option>
+                  <option value="API Key">API Key</option>
+                  <option value="Mutual TLS">Mutual TLS</option>
+                </select>
+              </label>
+              <label class="full">
+                Notes
+                <textarea
+                  name="integrationNotes"
+                  placeholder="Purpose, payload schema, etc."
+                ></textarea>
+              </label>
+              <button type="submit" class="ghost full">Add Integration</button>
+            </form>
+            <ul id="integration-list" class="timeline compact"></ul>
+          </div>
+          <div>
+            <h2>Data Residency & Storage</h2>
+            <p>
+              Documents are segregated per vendor and mirrored to
+              <code>data-vault/</code> for redundancy. Role-based encryption
+              keys prevent unauthorized access.
+            </p>
+            <ul class="check-list">
+              <li>
+                Separate folder per vendor under <code>assets/company-logo</code>
+                or vault
+              </li>
+              <li>Immutable audit logs for upload, approval, and queries</li>
+              <li>Configurable retention (1 to 10 years with auto renewal)</li>
+              <li>Daily and weekly offsite snapshots with checksum validation</li>
+            </ul>
+            <p>
+              Enable maker-checker controls with instant notifications to ensure
+              zero data loss and compliance with RBI guidelines.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <div class="modal hidden" id="password-modal">
+        <div class="modal-card">
+          <h3>Update Your Password</h3>
+          <p>
+            Welcome, <strong id="password-user">User</strong>. For security, please
+            change the temporary password provided by Admin.
+          </p>
+          <form id="password-change-form" class="form-grid">
+            <label class="full">
+              New Password
+              <input
+                type="password"
+                name="newPassword"
+                minlength="8"
+                autocomplete="new-password"
+                required
+              />
+            </label>
+            <label class="full">
+              Confirm Password
+              <input
+                type="password"
+                name="confirmPassword"
+                minlength="8"
+                autocomplete="new-password"
+                required
+              />
+            </label>
+            <div class="form-actions full">
+              <button type="submit" class="primary">Save Password</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          &copy; <span id="year"></span> Vendor Management Software · Secure ·
+          Compliant · API-ready
+        </p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+

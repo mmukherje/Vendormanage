@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendor Panel - Vendor Management Software</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page="vendor">
+    <div class="phusia-sheen"></div>
+    <div class="app-shell">
+      <nav class="banking-nav">
+        <div class="nav-top">
+          <div class="nav-brand">
+            <img src="assets/company-logo/janalogo.png.png" alt="Company Logo" class="nav-logo" onerror="this.src='assets/company-logo/logo-placeholder.svg'; this.onerror=function(){this.style.display='none';}" />
+            <div class="nav-brand-text">
+              <h2>Vendor Management Software</h2>
+            </div>
+          </div>
+          <div class="nav-user-info">
+            <span class="user-name">Vendor Code: <strong id="vendor-code">-</strong></span>
+            <button id="logout" class="nav-logout-btn">Logout</button>
+          </div>
+        </div>
+        <div class="nav-menu-bar">
+          <div class="nav-menu-item">
+            <a href="vendor.html" class="nav-menu-link active">Vendor</a>
+            <div class="nav-dropdown">
+              <a href="vendor-input-rate.html">Input Rate</a>
+              <a href="vendor-generate-bill.html">Generate Bill</a>
+              <a href="vendor-submit-ndc.html">Submit NDC</a>
+              <a href="vendor-bill-status.html">Bill Status</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="admin-menu-grid">
+        <a href="vendor-input-rate.html" class="menu-card">
+          <h3>Input Rate</h3>
+          <p>Update your billing rates</p>
+        </a>
+        <a href="vendor-generate-bill.html" class="menu-card">
+          <h3>Generate Bill</h3>
+          <p>Create and submit bills for payment</p>
+        </a>
+        <a href="vendor-submit-ndc.html" class="menu-card">
+          <h3>Submit NDC</h3>
+          <p>Upload No Due Certificate</p>
+        </a>
+        <a href="vendor-bill-status.html" class="menu-card">
+          <h3>Bill Status</h3>
+          <p>View bill status and payment details</p>
+        </a>
+      </div>
+    </div>
+    <script src="common.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+

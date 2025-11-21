@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Vendor Management Software</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page="admin">
+    <div class="phusia-sheen"></div>
+    <div class="app-shell">
+      <nav class="banking-nav">
+        <div class="nav-top">
+          <div class="nav-brand">
+            <img src="assets/company-logo/janalogo.png.png" alt="Company Logo" class="nav-logo" onerror="this.src='assets/company-logo/logo-placeholder.svg'; this.onerror=function(){this.style.display='none';}" />
+            <div class="nav-brand-text">
+              <h2>Vendor Management Software</h2>
+            </div>
+          </div>
+          <div class="nav-user-info">
+            <span class="user-name">Admin</span>
+            <button id="logout" class="nav-logout-btn">Logout</button>
+          </div>
+        </div>
+        <div class="nav-menu-bar">
+          <div class="nav-menu-item">
+            <a href="admin.html" class="nav-menu-link active">Admin</a>
+            <div class="nav-dropdown">
+              <a href="admin-add-user.html">Add User</a>
+              <a href="admin-add-vendor.html">Add Vendor</a>
+              <a href="admin-permissions.html">Create User Permission</a>
+              <a href="admin-reset-password.html">Reset Password</a>
+              <a href="admin-excel-upload.html">Add Data from Excel</a>
+              <a href="admin-vendor-onboarding.html">Vendor Onboarding</a>
+              <a href="admin-bill-payment.html">Bill Payment & UTR</a>
+              <a href="admin-dynamic-fields.html">Add Dynamic Fields</a>
+            </div>
+          </div>
+          <div class="nav-menu-item">
+            <a href="maker.html" class="nav-menu-link">Maker</a>
+            <div class="nav-dropdown">
+              <a href="maker-vendor-onboarding.html">Vendor Onboarding</a>
+              <a href="maker-manual-assign.html">Submit Manual Assign Cases</a>
+              <a href="maker-verify-bill.html">Verify Bill</a>
+              <a href="maker-sent-back.html">Sent Back Cases</a>
+            </div>
+          </div>
+          <div class="nav-menu-item">
+            <a href="vendor.html" class="nav-menu-link">Vendor</a>
+            <div class="nav-dropdown">
+              <a href="vendor-input-rate.html">Input Rate</a>
+              <a href="vendor-generate-bill.html">Generate Bill</a>
+              <a href="vendor-submit-ndc.html">Submit NDC</a>
+              <a href="vendor-bill-status.html">Bill Status</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="admin-menu-grid">
+        <a href="admin-add-user.html" class="menu-card">
+          <h3>Add User</h3>
+          <p>Create new users with role-based permissions</p>
+        </a>
+        <a href="admin-add-vendor.html" class="menu-card">
+          <h3>Add Vendor</h3>
+          <p>Manually add vendor details</p>
+        </a>
+        <a href="admin-permissions.html" class="menu-card">
+          <h3>Create User Permission</h3>
+          <p>Configure access rights for users</p>
+        </a>
+        <a href="admin-reset-password.html" class="menu-card">
+          <h3>Reset Password</h3>
+          <p>Reset user passwords</p>
+        </a>
+        <a href="admin-excel-upload.html" class="menu-card">
+          <h3>Add Data from Excel</h3>
+          <p>Bulk upload vendor/user data</p>
+        </a>
+        <a href="admin-vendor-onboarding.html" class="menu-card">
+          <h3>Vendor Onboarding</h3>
+          <p>Review and approve vendor submissions</p>
+        </a>
+        <a href="admin-bill-payment.html" class="menu-card">
+          <h3>Bill Payment & UTR</h3>
+          <p>Update payment status and UTR details</p>
+        </a>
+        <a href="admin-dynamic-fields.html" class="menu-card">
+          <h3>Add Dynamic Fields</h3>
+          <p>Create custom fields for any page</p>
+        </a>
+      </div>
+    </div>
+    <script src="common.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+

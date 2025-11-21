@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maker Panel - Vendor Management Software</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page="maker">
+    <div class="phusia-sheen"></div>
+    <div class="app-shell">
+      <nav class="banking-nav">
+        <div class="nav-top">
+          <div class="nav-brand">
+            <img src="assets/company-logo/janalogo.png.png" alt="Company Logo" class="nav-logo" onerror="this.src='assets/company-logo/logo-placeholder.svg'; this.onerror=function(){this.style.display='none';}" />
+            <div class="nav-brand-text">
+              <h2>Vendor Management Software</h2>
+            </div>
+          </div>
+          <div class="nav-user-info">
+            <span class="user-name" id="active-user-name">Maker</span>
+            <a href="maker-reset-password.html" class="nav-logout-btn" style="text-decoration: none; margin-right: 0.5rem;">Reset Password</a>
+            <button id="logout" class="nav-logout-btn">Logout</button>
+          </div>
+        </div>
+        <div class="nav-menu-bar">
+          <div class="nav-menu-item">
+            <a href="maker.html" class="nav-menu-link active">Maker</a>
+            <div class="nav-dropdown">
+              <a href="maker-vendor-onboarding.html">Vendor Onboarding</a>
+              <a href="maker-manual-assign.html">Submit Manual Assign Cases</a>
+              <a href="maker-verify-bill.html">Verify Bill</a>
+              <a href="maker-sent-back.html">Sent Back Cases</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="admin-menu-grid">
+        <a href="maker-vendor-onboarding.html" class="menu-card">
+          <h3>Vendor Onboarding</h3>
+          <p>Submit new vendor details for approval</p>
+        </a>
+        <a href="maker-manual-assign.html" class="menu-card">
+          <h3>Submit Manual Assign Cases</h3>
+          <p>Manually assign cases to vendors</p>
+        </a>
+        <a href="maker-verify-bill.html" class="menu-card">
+          <h3>Verify Bill</h3>
+          <p>Review and verify vendor bills</p>
+        </a>
+        <a href="maker-sent-back.html" class="menu-card">
+          <h3>Sent Back Cases</h3>
+          <p>Review cases sent back for additional documents</p>
+        </a>
+      </div>
+    </div>
+    <script src="common.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+

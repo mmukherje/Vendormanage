@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendor Management Software</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="phusia-sheen"></div>
+    <div class="app-shell login-shell">
+      <header class="app-header">
+        <div class="brand solo-brand">
+          <img
+            src="assets/company-logo/janalogo.png.png"
+            alt="Company Logo"
+            class="brand-logo"
+            onerror="this.src='assets/company-logo/logo-placeholder.svg'; this.onerror=function(){this.style.display='none';}"
+          />
+          <div>
+            <p class="eyebrow">Enterprise Platform</p>
+            <h1>Vendor Management Software</h1>
+            <p class="subtitle">
+              Corporate-grade gateway for onboarding, verification, and billing.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel login-panel single-card" id="login-panel">
+          <form id="login-form" class="form-grid pure-login">
+            <label>
+              User ID
+              <input type="text" name="userId" autocomplete="username" required />
+            </label>
+            <label>
+              Password
+              <input
+                type="password"
+                name="password"
+                autocomplete="current-password"
+                minlength="8"
+                required
+              />
+            </label>
+            <label class="full">
+              Role Selection
+              <div class="role-select">
+                <label>
+                  <input type="radio" name="role" value="admin" required />
+                  Admin
+                </label>
+                <label>
+                  <input type="radio" name="role" value="branch" />
+                  Branch User
+                </label>
+                <label>
+                  <input type="radio" name="role" value="vendor" />
+                  Vendor
+                </label>
+              </div>
+            </label>
+            <div class="full login-actions">
+              <button type="submit" class="primary">Login</button>
+              <button type="button" class="ghost" id="forgot-password">
+                Forgot Password?
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          &copy; <span id="year"></span> Vendor Management Software · Secure ·
+          Compliant · API-ready
+        </p>
+      </footer>
+    </div>
+    <script src="common.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
